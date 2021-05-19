@@ -1,11 +1,12 @@
 // NPM MODULES
 const validator = require("validator");
+const chalk = require("chalk");
 
 // LOCAL MODULES
 const getNotes = require("./notes.js");
 
 
-const notes = getNotes();
-console.log(notes);
+// const notes = getNotes();
+// console.log(notes);
 
-console.log(validator.isEmail("email@example.com"));
+console.log(chalk.green.inverse("SUCCESS!"));
