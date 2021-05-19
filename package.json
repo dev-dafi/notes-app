@@ -1,0 +1,19 @@
+{
+  "name": "notes-app",
+  "version": "1.0.0",
+  "description": "under development",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev-dafi/notes-app.git"
+  },
+  "author": "Daniel Fischer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dev-dafi/notes-app/issues"
+  },
+  "homepage": "https://github.com/dev-dafi/notes-app#readme"
+}
