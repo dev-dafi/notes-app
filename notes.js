@@ -1,10 +1,6 @@
 const chalk = require("chalk");
 const fs = require("fs");
 
-const getNotes = () => {
-    return "Your notes ... ";
-};
-
 
 /**
  * Save note to filesystem.
@@ -18,12 +14,12 @@ const addNote = (title, body) => {
     // Find method runs until it founds the item, than "terminates"
     // true if title exists ==> stored in found duplicate
     const duplicateNote = notes.find((note) => note.title === title)
-    
+
     // New note is not a duplicate?
     if (!duplicateNote) {
         notes.push({
-            title : title,
-            body : body,
+            title: title,
+            body: body,
         });
         saveNotes(notes);
         console.log(chalk.green.inverse("New note added."));
@@ -46,6 +42,25 @@ const listNotes = () => {
 }
 
 
+/**
+ * Reads details from a specific note, described by it's title 
+ * @param {String} title Title of note which should be displayed in detail
+ */
+
+const readNote = (title) => {
+    const notes = loadNotes();
+
+    // Found match, if given title corresponds to user given title
+    const note = notes.find((note) => note.title === title);
+
+    if (note) {
+        console.log(chalk.inverse.cyan(title));
+        console.log(note.body);
+    } else {
+        console.log(chalk.inverse.red("Note not found!"));
+    }
+}
+
 
 
 /**
@@ -56,13 +71,13 @@ const listNotes = () => {
 const removeNote = (title) => {
     const notes = loadNotes();
     // keep all notes, whose title are 'NOT' the one to remove
-    const notesToKeep = notes.filter((note) => note.title !== title);    
+    const notesToKeep = notes.filter((note) => note.title !== title);
 
     if (notes.length === notesToKeep.length) {
-        console.log(chalk.inverse.yellow("Note " +title+ " doesn't exist."));
+        console.log(chalk.inverse.yellow("Note " + title + " doesn't exist."));
     } else {
-        console.log(chalk.inverse.green("Note " +title+ " has been removed."));
-        saveNotes(notesToKeep);   
+        console.log(chalk.inverse.green("Note " + title + " has been removed."));
+        saveNotes(notesToKeep);
     }
 }
 
@@ -79,7 +94,7 @@ const loadNotes = () => {
         const dataBuffer = fs.readFileSync("notes.json");
         const dataJSON = JSON.stringify(dataBuffer);
         return JSON.parse(dataBuffer);
-    } catch(e) {
+    } catch (e) {
         // notes file doesn't exist? return empty array
         return [];
     }
@@ -101,6 +116,7 @@ module.exports = {
     addNote: addNote,
     removeNote: removeNote,
     listNotes: listNotes,
+    readNote: readNote,
 }
 
 
