@@ -30,6 +30,19 @@ const addNote = (title, body) => {
     } else {
         console.log(chalk.yellow.inverse("Note title already taken."));
     }
+};
+
+
+/**
+ * Print all notes on console
+ */
+
+const listNotes = () => {
+    const notes = loadNotes();
+    console.log(chalk.inverse.cyan("Your notes:"));
+    notes.forEach(note => {
+        console.log(note.title);
+    });
 }
 
 
@@ -85,6 +98,7 @@ module.exports = {
     getNotes: getNotes,
     addNote: addNote,
     removeNote: removeNote,
+    listNotes: listNotes,
 }
 
 
