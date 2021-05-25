@@ -1,7 +1,7 @@
 const chalk = require("chalk");
 const fs = require("fs");
 
-const getNotes = function () {
+const getNotes = () => {
     return "Your notes ... ";
 };
 
@@ -12,14 +12,12 @@ const getNotes = function () {
  * @param {String} body Content of note which should be added
  */
 
-const addNote = function (title, body) {
+const addNote = (title, body) => {
     const notes = loadNotes();
 
     // Filter function gets called for EVERY entry in notes and stores duplicate in duplicateNotes
-    const duplicateNotes = notes.filter(function(note){
-        // true if title exists ==> found duplicate
-        return note.title === title;
-    })
+    // true if title exists ==> stored in found duplicate
+    const duplicateNotes = notes.filter((note) => note.title === title)
     
     // Didn't find duplicate?
     if (duplicateNotes.length === 0) {
@@ -40,13 +38,10 @@ const addNote = function (title, body) {
  * @param {String} title Title of note which should be removed
  */
 
-const removeNote = function (title){
+const removeNote = (title) => {
     const notes = loadNotes();
-    const notesToKeep = notes.filter(function(note){
-
-        // keep all notes, whose title are 'NOT' the one to remove
-        return note.title !== title;
-    });    
+    // keep all notes, whose title are 'NOT' the one to remove
+    const notesToKeep = notes.filter((note) => note.title !== title);    
 
     if (notes.length === notesToKeep.length) {
         console.log(chalk.inverse.yellow("Note " +title+ " doesn't exist."));
@@ -62,7 +57,7 @@ const removeNote = function (title){
  * @returns Stored notes
  */
 
-const loadNotes = function (){
+const loadNotes = () => {
 
     try {
         // read file from filesystem
@@ -81,7 +76,7 @@ const loadNotes = function (){
  * @param {[notes]} notes 
  */
 
-const saveNotes = function (notes){
+const saveNotes = (notes) => {
     const dataJSON = JSON.stringify(notes)
     fs.writeFileSync("notes.json", dataJSON);
 }
