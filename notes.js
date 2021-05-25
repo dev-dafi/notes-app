@@ -35,6 +35,11 @@ const addNote = function (title, body) {
 }
 
 
+const removeNote = function (title){
+    console.log("Note with title to remove: " + title);
+}
+
+
 /**
  * Load stored notes if available.
  * @returns Stored notes
@@ -66,7 +71,8 @@ const saveNotes = function (notes){
 
 module.exports = {
     getNotes: getNotes,
-    addNote: addNote
+    addNote: addNote,
+    removeNote: removeNote,
 }
 
 

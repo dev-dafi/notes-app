@@ -36,8 +36,16 @@ yargs.command({
 yargs.command({
   command: "remove",
   describe: "Removes a note",
-  handler: function () {
-    console.log("Removing note");
+  builder: {
+    title: {
+      describe: "Remove note",
+      demandOption: true,
+      type: "string"
+    }
+  },
+  handler: function (argv) {
+    // console.log("Removing note");
+    notes.removeNote(argv.title);
   }
 });
 
