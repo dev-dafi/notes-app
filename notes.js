@@ -15,12 +15,12 @@ const getNotes = () => {
 const addNote = (title, body) => {
     const notes = loadNotes();
 
-    // Filter function gets called for EVERY entry in notes and stores duplicate in duplicateNotes
+    // Find method runs until it founds the item, than "terminates"
     // true if title exists ==> stored in found duplicate
-    const duplicateNotes = notes.filter((note) => note.title === title)
+    const duplicateNote = notes.find((note) => note.title === title)
     
-    // Didn't find duplicate?
-    if (duplicateNotes.length === 0) {
+    // New note is not a duplicate?
+    if (!duplicateNote) {
         notes.push({
             title : title,
             body : body,
@@ -44,6 +44,8 @@ const listNotes = () => {
         console.log(note.title);
     });
 }
+
+
 
 
 /**
