@@ -117,3 +117,6 @@ dist
 
 # Mac related
 .DS_Store
+
+# App testing related stuff
+notes.json
