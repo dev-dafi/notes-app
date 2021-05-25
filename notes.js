@@ -8,8 +8,8 @@ const getNotes = function () {
 
 /**
  * Save note to filesystem.
- * @param {String} title 
- * @param {String} body 
+ * @param {String} title Title of note which should be added
+ * @param {String} body Content of note which should be added
  */
 
 const addNote = function (title, body) {
@@ -30,13 +30,30 @@ const addNote = function (title, body) {
         saveNotes(notes);
         console.log(chalk.green.inverse("New note added."));
     } else {
-        console.log(chalk.red.inverse("Note title already taken."));
+        console.log(chalk.yellow.inverse("Note title already taken."));
     }
 }
 
 
+/**
+ * Removes note from file.
+ * @param {String} title Title of note which should be removed
+ */
+
 const removeNote = function (title){
-    console.log("Note with title to remove: " + title);
+    const notes = loadNotes();
+    const notesToKeep = notes.filter(function(note){
+
+        // keep all notes, whose title are 'NOT' the one to remove
+        return note.title !== title;
+    });    
+
+    if (notes.length === notesToKeep.length) {
+        console.log(chalk.inverse.yellow("Note " +title+ " doesn't exist."));
+    } else {
+        console.log(chalk.inverse.green("Note " +title+ " has been removed."));
+        saveNotes(notesToKeep);   
+    }
 }
 
 
