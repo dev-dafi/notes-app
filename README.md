@@ -23,3 +23,5 @@ Open a terminal window and navigate to project folder:
 ![ScreenShot](https://i.postimg.cc/9FZ0c7Mw/Bildschirmfoto-2021-05-26-um-09-37-03.png)
 ##### Read note
 ![ScreenShot](https://i.postimg.cc/htnjvtzy/Bildschirmfoto-2021-05-26-um-09-37-33.png)
+##### Help menu
+![ScreenShot](https://i.postimg.cc/7LmbprLB/Bildschirmfoto-2021-05-26-um-09-48-56.png)
