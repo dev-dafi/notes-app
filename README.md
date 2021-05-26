@@ -5,14 +5,20 @@ The app provides a help menu, based on user given arguments.
 
 ## Installation
 1. Clone or download the project.
-1. Navigate to download destination
-1. Run `npm install` to install necessary dependencies.
+2. Navigate to download destination
+3. Run `npm install` to install necessary dependencies.
 
 ## Example usage
 Open a terminal window and navigate to project folder:
 
 * To add a new list, run: `node app.js add --title="Shopping List" --body="Milk, Sugar"`
 * To get help, run: `node app.js --help`
+
+### Used npm packages
+* yargs
+  * https://www.npmjs.com/package/yargs
+* chalk
+  * https://www.npmjs.com/package/chalk
 
 ### Screenshots
 ##### Add note
