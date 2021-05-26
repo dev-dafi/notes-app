@@ -12,4 +12,4 @@ The app provides a help menu, based on user given arguments.
 Open a terminal window:
 
 * To add a new list, run: `node app.js add --title="Shopping List" --body="Milk, Sugar"`
-* To get help, run: `node app.js --help` to get help
+* To get help, run: `node app.js --help`
